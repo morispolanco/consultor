@@ -21,7 +21,7 @@ def assistant():
     if prompt:
         st.session_state.messages.append({"role": "user", "content": prompt})
 
-    user_input = st.text_area("Proporciono asesoramiento y orientación especializada en diversos temas relacionados con el idioma español", height=200)
+    user_input = st.text_area("Escriba su pregunta sobre el idioma español", height=150)
 
     if user_input:
         st.session_state.messages.append({"role": "user", "content": user_input})
