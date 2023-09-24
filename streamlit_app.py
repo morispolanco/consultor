@@ -19,7 +19,7 @@ def assistant():
 
     prompt = "Como consultor experto en español, tu objetivo es proporcionar asesoramiento y orientación especializada en diversos temas relacionados con el idioma español. Tu tarea consiste en ofrecer información precisa, útil y de calidad a aquellos que necesiten asistencia en el ámbito del español."
     if prompt:
-        st.session_state.messages.append({"role": "user", "content": prompt})
+        st.session_state.messages.append({"role": "assistant", "content": prompt})
 
     user_input = st.text_area("Escriba su pregunta sobre el idioma español", height=150)
 
@@ -32,7 +32,7 @@ def assistant():
 
     if st.button("Consultar"):
         optimized_prompt = generate_optimized_prompt(prompt)
-        st.session_state.messages.append({"role": "user", "content": optimized_prompt})
+        st.session_state.messages.append({"role": "assistant", "content": optimized_prompt})
         response = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages=st.session_state.messages)
         msg = response.choices[0].message
         st.session_state.messages.append(msg)
